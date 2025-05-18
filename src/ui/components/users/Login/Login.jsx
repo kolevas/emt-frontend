@@ -49,7 +49,7 @@ const Login = () => {
                 <Typography variant="h4" mb={2} textAlign="center">
                     Login
                 </Typography>
-                <Typography variant="h6" mb={2} textAlign="center">
+                <Typography variant="h6" mb={2} textAlign="center" color={"error"}>
                     {errorMessage}
                 </Typography>
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
