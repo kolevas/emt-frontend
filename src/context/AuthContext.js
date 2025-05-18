@@ -40,7 +40,15 @@ export const AuthProvider = ({ children }) => {
         try {
             await userRepository.login(username, password);
             checkAuth();
-            navigate("/", { replace: true });
+            const token = localStorage.getItem("jwtToken");
+
+            if(!token)
+                navigate("/user/login", {
+                    state: { errorMessage: "Invalid username or password" },
+                    replace: true
+                });
+            else
+                navigate("/", { replace: true });
         } catch (error) {
             console.error("Login failed:", error);
         }
